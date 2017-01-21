@@ -11,11 +11,13 @@ namespace EventsMVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TIN_Opinia
     {
         public decimal TIN_Opinia_ID { get; set; }
         public string Tresc { get; set; }
+        [Display(Name = "Wydarzenie")]
         public decimal TIN_Wydarzenie_TIN_Wydarzenie_ID { get; set; }
     
         public virtual TIN_Wydarzenie TIN_Wydarzenie { get; set; }

@@ -11,7 +11,8 @@ namespace EventsMVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TIN_Tagi
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,7 @@ namespace EventsMVC.Models
         {
             this.TIN_Wydarzenie = new HashSet<TIN_Wydarzenie>();
         }
-    
+        
         public string Nazwa { get; set; }
         public decimal TIN_Tagi_ID { get; set; }
     

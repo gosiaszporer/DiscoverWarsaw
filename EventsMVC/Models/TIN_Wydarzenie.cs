@@ -11,7 +11,8 @@ namespace EventsMVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TIN_Wydarzenie
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,6 +25,7 @@ namespace EventsMVC.Models
         public string Nazwa { get; set; }
         public int WiekOd { get; set; }
         public Nullable<int> WiekDo { get; set; }
+        [DataType("decimal(10,2")]
         public decimal Cena { get; set; }
         public System.DateTime DataOd { get; set; }
         public Nullable<System.DateTime> DataDo { get; set; }

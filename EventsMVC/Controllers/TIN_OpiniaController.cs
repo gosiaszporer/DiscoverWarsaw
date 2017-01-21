@@ -13,6 +13,7 @@ namespace EventsMVC.Controllers
     public class TIN_OpiniaController : Controller
     {
         private s12667Entities db = new s12667Entities();
+        private static int globalCount;
 
         // GET: TIN_Opinia
         public ActionResult Index()
@@ -50,6 +51,8 @@ namespace EventsMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TIN_Opinia_ID,Tresc,TIN_Wydarzenie_TIN_Wydarzenie_ID")] TIN_Opinia tIN_Opinia)
         {
+            tIN_Opinia.TIN_Opinia_ID = ++globalCount;
+
             if (ModelState.IsValid)
             {
                 db.TIN_Opinia.Add(tIN_Opinia);
