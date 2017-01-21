@@ -39,6 +39,9 @@
         <th>
             @Html.DisplayNameFor(model => model.TIN_Kategoria.Nazwa)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIN_Tagi)
+        </th>
         <th></th>
     </tr>
 
@@ -70,6 +73,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TIN_Kategoria.Nazwa)
+        </td>
+        <td>
+            @Html.ListBox("TIN_Tagi_ID", new SelectList(item.TIN_Tagi,"TIN_Tagi_ID","Nazwa"))
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TIN_Wydarzenie_ID }) |
