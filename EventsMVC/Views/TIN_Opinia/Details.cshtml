@@ -1,0 +1,35 @@
+﻿@model EventsMVC.Models.TIN_Opinia
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TIN_Opinia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tresc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tresc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIN_Wydarzenie.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIN_Wydarzenie.Nazwa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TIN_Opinia_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

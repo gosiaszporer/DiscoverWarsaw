@@ -1,0 +1,91 @@
+﻿@model EventsMVC.Models.TIN_Wydarzenie
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TIN_Wydarzenie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WiekOd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WiekOd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WiekDo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WiekDo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataOd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataOd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organizator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organizator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIN_Kategoria.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIN_Kategoria.Nazwa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TIN_Wydarzenie_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

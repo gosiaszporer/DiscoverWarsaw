@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="s12667Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TIN_Kategoria">
+          <Key>
+            <PropertyRef Name="TIN_Kategoria_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TIN_Kategoria_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIN_Opinia">
+          <Key>
+            <PropertyRef Name="TIN_Opinia_ID" />
+          </Key>
+          <Property Name="TIN_Opinia_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Tresc" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="TIN_Wydarzenie_TIN_Wydarzenie_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIN_Tagi">
+          <Key>
+            <PropertyRef Name="TIN_Tagi_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="TIN_Tagi_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIN_Tagi_Wydarzenie">
+          <Key>
+            <PropertyRef Name="TIN_Wydarzenie_TIN_Wydarzenie_ID" />
+            <PropertyRef Name="TIN_Tagi_TIN_Tagi_ID" />
+          </Key>
+          <Property Name="TIN_Wydarzenie_TIN_Wydarzenie_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="TIN_Tagi_TIN_Tagi_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIN_Wydarzenie">
+          <Key>
+            <PropertyRef Name="TIN_Wydarzenie_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WiekOd" Type="int" Nullable="false" />
+          <Property Name="WiekDo" Type="int" />
+          <Property Name="Cena" Type="decimal" Precision="2" Scale="2" Nullable="false" />
+          <Property Name="DataOd" Type="datetime" Nullable="false" />
+          <Property Name="DataDo" Type="datetime" />
+          <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Organizator" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TIN_Wydarzenie_ID" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIN_Kategoria_TIN_Kategoria_ID" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="TIN_Opinia_TIN_Wydarzenie_FK">
+          <End Role="TIN_Wydarzenie" Type="Self.TIN_Wydarzenie" Multiplicity="1" />
+          <End Role="TIN_Opinia" Type="Self.TIN_Opinia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIN_Wydarzenie">
+              <PropertyRef Name="TIN_Wydarzenie_ID" />
+            </Principal>
+            <Dependent Role="TIN_Opinia">
+              <PropertyRef Name="TIN_Wydarzenie_TIN_Wydarzenie_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIN_Tagi_Wydarzenie_TIN_Tagi_FK">
+          <End Role="TIN_Tagi" Type="Self.TIN_Tagi" Multiplicity="1" />
+          <End Role="TIN_Tagi_Wydarzenie" Type="Self.TIN_Tagi_Wydarzenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIN_Tagi">
+              <PropertyRef Name="TIN_Tagi_ID" />
+            </Principal>
+            <Dependent Role="TIN_Tagi_Wydarzenie">
+              <PropertyRef Name="TIN_Tagi_TIN_Tagi_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIN_Tagi_Wydarzenie_TIN_Wydarzenie_FK">
+          <End Role="TIN_Wydarzenie" Type="Self.TIN_Wydarzenie" Multiplicity="1" />
+          <End Role="TIN_Tagi_Wydarzenie" Type="Self.TIN_Tagi_Wydarzenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIN_Wydarzenie">
+              <PropertyRef Name="TIN_Wydarzenie_ID" />
+            </Principal>
+            <Dependent Role="TIN_Tagi_Wydarzenie">
+              <PropertyRef Name="TIN_Wydarzenie_TIN_Wydarzenie_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIN_Wydarzenie_TIN_Kategoria_FK">
+          <End Role="TIN_Kategoria" Type="Self.TIN_Kategoria" Multiplicity="1" />
+          <End Role="TIN_Wydarzenie" Type="Self.TIN_Wydarzenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIN_Kategoria">
+              <PropertyRef Name="TIN_Kategoria_ID" />
+            </Principal>
+            <Dependent Role="TIN_Wydarzenie">
+              <PropertyRef Name="TIN_Kategoria_TIN_Kategoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="s12667ModelStoreContainer">
+          <EntitySet Name="TIN_Kategoria" EntityType="Self.TIN_Kategoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIN_Opinia" EntityType="Self.TIN_Opinia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIN_Tagi" EntityType="Self.TIN_Tagi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIN_Tagi_Wydarzenie" EntityType="Self.TIN_Tagi_Wydarzenie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIN_Wydarzenie" EntityType="Self.TIN_Wydarzenie" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="TIN_Opinia_TIN_Wydarzenie_FK" Association="Self.TIN_Opinia_TIN_Wydarzenie_FK">
+            <End Role="TIN_Wydarzenie" EntitySet="TIN_Wydarzenie" />
+            <End Role="TIN_Opinia" EntitySet="TIN_Opinia" />
+          </AssociationSet>
+          <AssociationSet Name="TIN_Tagi_Wydarzenie_TIN_Tagi_FK" Association="Self.TIN_Tagi_Wydarzenie_TIN_Tagi_FK">
+            <End Role="TIN_Tagi" EntitySet="TIN_Tagi" />
+            <End Role="TIN_Tagi_Wydarzenie" EntitySet="TIN_Tagi_Wydarzenie" />
+          </AssociationSet>
+          <AssociationSet Name="TIN_Tagi_Wydarzenie_TIN_Wydarzenie_FK" Association="Self.TIN_Tagi_Wydarzenie_TIN_Wydarzenie_FK">
+            <End Role="TIN_Wydarzenie" EntitySet="TIN_Wydarzenie" />
+            <End Role="TIN_Tagi_Wydarzenie" EntitySet="TIN_Tagi_Wydarzenie" />
+          </AssociationSet>
+          <AssociationSet Name="TIN_Wydarzenie_TIN_Kategoria_FK" Association="Self.TIN_Wydarzenie_TIN_Kategoria_FK">
+            <End Role="TIN_Kategoria" EntitySet="TIN_Kategoria" />
+            <End Role="TIN_Wydarzenie" EntitySet="TIN_Wydarzenie" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="s12667Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TIN_Kategoria">
+          <Key>
+            <PropertyRef Name="TIN_Kategoria_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIN_Kategoria_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TIN_Wydarzenie" Relationship="Self.TIN_Wydarzenie_TIN_Kategoria_FK" FromRole="TIN_Kategoria" ToRole="TIN_Wydarzenie" />
+        </EntityType>
+        <EntityType Name="TIN_Opinia">
+          <Key>
+            <PropertyRef Name="TIN_Opinia_ID" />
+          </Key>
+          <Property Name="TIN_Opinia_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="Tresc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIN_Wydarzenie_TIN_Wydarzenie_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TIN_Wydarzenie" Relationship="Self.TIN_Opinia_TIN_Wydarzenie_FK" FromRole="TIN_Opinia" ToRole="TIN_Wydarzenie" />
+        </EntityType>
+        <EntityType Name="TIN_Tagi">
+          <Key>
+            <PropertyRef Name="TIN_Tagi_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIN_Tagi_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TIN_Wydarzenie" Relationship="Self.TIN_Tagi_Wydarzenie" FromRole="TIN_Tagi" ToRole="TIN_Wydarzenie" />
+        </EntityType>
+        <EntityType Name="TIN_Wydarzenie">
+          <Key>
+            <PropertyRef Name="TIN_Wydarzenie_ID" />
+          </Key>
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WiekOd" Type="Int32" Nullable="false" />
+          <Property Name="WiekDo" Type="Int32" />
+          <Property Name="Cena" Type="Decimal" Precision="2" Scale="2" Nullable="false" />
+          <Property Name="DataOd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataDo" Type="DateTime" Precision="3" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Organizator" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIN_Wydarzenie_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIN_Kategoria_TIN_Kategoria_ID" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TIN_Kategoria" Relationship="Self.TIN_Wydarzenie_TIN_Kategoria_FK" FromRole="TIN_Wydarzenie" ToRole="TIN_Kategoria" />
+          <NavigationProperty Name="TIN_Opinia" Relationship="Self.TIN_Opinia_TIN_Wydarzenie_FK" FromRole="TIN_Wydarzenie" ToRole="TIN_Opinia" />
+          <NavigationProperty Name="TIN_Tagi" Relationship="Self.TIN_Tagi_Wydarzenie" FromRole="TIN_Wydarzenie" ToRole="TIN_Tagi" />
+        </EntityType>
+        <Association Name="TIN_Wydarzenie_TIN_Kategoria_FK">
+          <End Role="TIN_Kategoria" Type="Self.TIN_Kategoria" Multiplicity="1" />
+          <End Role="TIN_Wydarzenie" Type="Self.TIN_Wydarzenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIN_Kategoria">
+              <PropertyRef Name="TIN_Kategoria_ID" />
+            </Principal>
+            <Dependent Role="TIN_Wydarzenie">
+              <PropertyRef Name="TIN_Kategoria_TIN_Kategoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIN_Opinia_TIN_Wydarzenie_FK">
+          <End Role="TIN_Wydarzenie" Type="Self.TIN_Wydarzenie" Multiplicity="1" />
+          <End Role="TIN_Opinia" Type="Self.TIN_Opinia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIN_Wydarzenie">
+              <PropertyRef Name="TIN_Wydarzenie_ID" />
+            </Principal>
+            <Dependent Role="TIN_Opinia">
+              <PropertyRef Name="TIN_Wydarzenie_TIN_Wydarzenie_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIN_Tagi_Wydarzenie">
+          <End Role="TIN_Tagi" Type="Self.TIN_Tagi" Multiplicity="*" />
+          <End Role="TIN_Wydarzenie" Type="Self.TIN_Wydarzenie" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="s12667Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TIN_Kategoria" EntityType="Self.TIN_Kategoria" />
+          <EntitySet Name="TIN_Opinia" EntityType="Self.TIN_Opinia" />
+          <EntitySet Name="TIN_Tagi" EntityType="Self.TIN_Tagi" />
+          <EntitySet Name="TIN_Wydarzenie" EntityType="Self.TIN_Wydarzenie" />
+          <AssociationSet Name="TIN_Wydarzenie_TIN_Kategoria_FK" Association="Self.TIN_Wydarzenie_TIN_Kategoria_FK">
+            <End Role="TIN_Kategoria" EntitySet="TIN_Kategoria" />
+            <End Role="TIN_Wydarzenie" EntitySet="TIN_Wydarzenie" />
+          </AssociationSet>
+          <AssociationSet Name="TIN_Opinia_TIN_Wydarzenie_FK" Association="Self.TIN_Opinia_TIN_Wydarzenie_FK">
+            <End Role="TIN_Wydarzenie" EntitySet="TIN_Wydarzenie" />
+            <End Role="TIN_Opinia" EntitySet="TIN_Opinia" />
+          </AssociationSet>
+          <AssociationSet Name="TIN_Tagi_Wydarzenie" Association="Self.TIN_Tagi_Wydarzenie">
+            <End Role="TIN_Tagi" EntitySet="TIN_Tagi" />
+            <End Role="TIN_Wydarzenie" EntitySet="TIN_Wydarzenie" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="s12667ModelStoreContainer" CdmEntityContainer="s12667Entities">
+          <EntitySetMapping Name="TIN_Kategoria">
+            <EntityTypeMapping TypeName="s12667Model.TIN_Kategoria">
+              <MappingFragment StoreEntitySet="TIN_Kategoria">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="TIN_Kategoria_ID" ColumnName="TIN_Kategoria_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIN_Opinia">
+            <EntityTypeMapping TypeName="s12667Model.TIN_Opinia">
+              <MappingFragment StoreEntitySet="TIN_Opinia">
+                <ScalarProperty Name="TIN_Opinia_ID" ColumnName="TIN_Opinia_ID" />
+                <ScalarProperty Name="Tresc" ColumnName="Tresc" />
+                <ScalarProperty Name="TIN_Wydarzenie_TIN_Wydarzenie_ID" ColumnName="TIN_Wydarzenie_TIN_Wydarzenie_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIN_Tagi">
+            <EntityTypeMapping TypeName="s12667Model.TIN_Tagi">
+              <MappingFragment StoreEntitySet="TIN_Tagi">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="TIN_Tagi_ID" ColumnName="TIN_Tagi_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIN_Wydarzenie">
+            <EntityTypeMapping TypeName="s12667Model.TIN_Wydarzenie">
+              <MappingFragment StoreEntitySet="TIN_Wydarzenie">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="WiekOd" ColumnName="WiekOd" />
+                <ScalarProperty Name="WiekDo" ColumnName="WiekDo" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="DataOd" ColumnName="DataOd" />
+                <ScalarProperty Name="DataDo" ColumnName="DataDo" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Organizator" ColumnName="Organizator" />
+                <ScalarProperty Name="TIN_Wydarzenie_ID" ColumnName="TIN_Wydarzenie_ID" />
+                <ScalarProperty Name="TIN_Kategoria_TIN_Kategoria_ID" ColumnName="TIN_Kategoria_TIN_Kategoria_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="TIN_Tagi_Wydarzenie" TypeName="s12667Model.TIN_Tagi_Wydarzenie" StoreEntitySet="TIN_Tagi_Wydarzenie">
+            <EndProperty Name="TIN_Tagi">
+              <ScalarProperty Name="TIN_Tagi_ID" ColumnName="TIN_Tagi_TIN_Tagi_ID" />
+            </EndProperty>
+            <EndProperty Name="TIN_Wydarzenie">
+              <ScalarProperty Name="TIN_Wydarzenie_ID" ColumnName="TIN_Wydarzenie_TIN_Wydarzenie_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

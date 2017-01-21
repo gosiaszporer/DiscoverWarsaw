@@ -1,0 +1,82 @@
+﻿@model IEnumerable<EventsMVC.Models.TIN_Wydarzenie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WiekOd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WiekDo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataOd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataDo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Organizator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIN_Kategoria.Nazwa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WiekOd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WiekDo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataOd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Organizator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIN_Kategoria.Nazwa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TIN_Wydarzenie_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TIN_Wydarzenie_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TIN_Wydarzenie_ID })
+        </td>
+    </tr>
+}
+
+</table>

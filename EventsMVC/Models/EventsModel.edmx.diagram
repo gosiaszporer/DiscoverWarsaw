@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="660819a369e047e4a941fb9a982325a9" Name="Diagram1">
+        <EntityTypeShape EntityType="s12667Model.TIN_Kategoria" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="s12667Model.TIN_Opinia" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="s12667Model.TIN_Tagi" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="s12667Model.TIN_Wydarzenie" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="s12667Model.TIN_Wydarzenie_TIN_Kategoria_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="s12667Model.TIN_Opinia_TIN_Wydarzenie_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="s12667Model.TIN_Tagi_Wydarzenie" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
