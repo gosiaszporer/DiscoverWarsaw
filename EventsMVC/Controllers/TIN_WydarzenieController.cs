@@ -131,7 +131,7 @@ namespace EventsMVC.Controllers
                     db.SaveChanges(); */
 
 
-                    db.Entry(updatedWydTag).State = EntityState.Modified;
+                    db.Entry(wydToUpdate).State = EntityState.Modified;
                     db.SaveChanges();
                 }
                 
