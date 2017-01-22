@@ -1,5 +1,57 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <style>
+        #banner {
+            width: 100%;
+            min-height: 120px;
+            color: #149c82;
+            font-family: 'Pacifico', cursive;
+            text-align: center;
+            font-size: 90px;
+        }
+        .left-col {
+             width: 400px;
+             display: inline-block;
+            float: left;
+        }
 
-<h1>Najciekawsze warszawskie wydarzenia w jednym miejscu!</h1>
+        .right-col {
+            display: inline-block;
+            float: left;
+            width: calc(100%-430px);
+            text-align:center;
+        }
+        .clearfix {
+            clear:both;
+        }
+        .pano {
+            width:100%;
+            height:350px;
+           
+        }
+    </style>
+
+</head>
+<div id="banner">
+    What are you doing tonight, Warsaw?
+</div>
+<br/>
+<div class="pano">
+    <center><img src="~/content/panorama.jpg" /></center> 
+</div>
+<div >
+    
+</div>
+<div ></div>

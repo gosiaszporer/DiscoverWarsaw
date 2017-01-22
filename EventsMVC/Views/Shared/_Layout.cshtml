@@ -6,18 +6,44 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <style>
+        footer {          
+            height:30px;
+            font-family: 'Pacifico';
+            text-align:center;
+            font-size:20px;
+        }
+        p{
+            padding-top:5px;
+            vertical-align:middle;
+        }
+        .logo {
+            height:45px;
+            margin-top:6px;
+
+        }
+}
+    </style>
 
 </head>
 <body>
+    
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+                
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Ssup Warsaw?", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Discover Warsaw", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <img src="~/content/binoculars-icon-white.png" class="logo" />              
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">                   
@@ -38,11 +64,16 @@
             </div>
         </div>
     </div>
+
+    
+
     <div class="container body-content">
         @RenderBody()
         <hr />
+
+
         <footer>
-            <p>&copy; Gosia 2017 </p>
+            <p> designed & developed by Gosia </p>
         </footer>
     </div>
 

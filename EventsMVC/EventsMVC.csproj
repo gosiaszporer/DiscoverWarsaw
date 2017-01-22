@@ -243,8 +243,13 @@
     <Compile Include="ViewModel\WydTagViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\binoculars-icon-white.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\circle-icon_discoverLRG-new.png" />
+    <Content Include="Content\flatly.bootstrap.css" />
+    <Content Include="Content\flatly.bootstrap.min.css" />
+    <Content Include="Content\panorama.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -286,6 +291,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\z8508878Q,Rysunek-Przemka--Trusta--Truscinskiego--pokazywane.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
