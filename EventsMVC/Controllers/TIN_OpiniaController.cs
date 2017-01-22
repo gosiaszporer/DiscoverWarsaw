@@ -38,6 +38,7 @@ namespace EventsMVC.Controllers
         }
 
         // GET: TIN_Opinia/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.TIN_Wydarzenie_TIN_Wydarzenie_ID = new SelectList(db.TIN_Wydarzenie, "TIN_Wydarzenie_ID", "Nazwa");
@@ -47,6 +48,7 @@ namespace EventsMVC.Controllers
         // POST: TIN_Opinia/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TIN_Opinia_ID,Tresc,TIN_Wydarzenie_TIN_Wydarzenie_ID")] TIN_Opinia tIN_Opinia)
@@ -65,6 +67,7 @@ namespace EventsMVC.Controllers
         }
 
         // GET: TIN_Opinia/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(decimal id)
         {
             if (id == null)
@@ -83,6 +86,7 @@ namespace EventsMVC.Controllers
         // POST: TIN_Opinia/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "TIN_Opinia_ID,Tresc,TIN_Wydarzenie_TIN_Wydarzenie_ID")] TIN_Opinia tIN_Opinia)
@@ -98,6 +102,7 @@ namespace EventsMVC.Controllers
         }
 
         // GET: TIN_Opinia/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(decimal id)
         {
             if (id == null)
@@ -113,6 +118,7 @@ namespace EventsMVC.Controllers
         }
 
         // POST: TIN_Opinia/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(decimal id)

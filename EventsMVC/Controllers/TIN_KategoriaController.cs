@@ -14,12 +14,14 @@ namespace EventsMVC.Controllers
     {
         private s12667Entities db = new s12667Entities();
 
+        [Authorize(Roles="Admin")]
         // GET: TIN_Kategoria
         public ActionResult Index()
         {
             return View(db.TIN_Kategoria.ToList());
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: TIN_Kategoria/Details/5
         public ActionResult Details(decimal id)
         {
@@ -35,6 +37,7 @@ namespace EventsMVC.Controllers
             return View(tIN_Kategoria);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: TIN_Kategoria/Create
         public ActionResult Create()
         {
@@ -44,6 +47,8 @@ namespace EventsMVC.Controllers
         // POST: TIN_Kategoria/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Nazwa,TIN_Kategoria_ID")] TIN_Kategoria tIN_Kategoria)
@@ -58,6 +63,7 @@ namespace EventsMVC.Controllers
             return View(tIN_Kategoria);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: TIN_Kategoria/Edit/5
         public ActionResult Edit(decimal id)
         {
@@ -76,6 +82,8 @@ namespace EventsMVC.Controllers
         // POST: TIN_Kategoria/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Nazwa,TIN_Kategoria_ID")] TIN_Kategoria tIN_Kategoria)
@@ -89,6 +97,7 @@ namespace EventsMVC.Controllers
             return View(tIN_Kategoria);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: TIN_Kategoria/Delete/5
         public ActionResult Delete(decimal id)
         {
@@ -104,6 +113,7 @@ namespace EventsMVC.Controllers
             return View(tIN_Kategoria);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: TIN_Kategoria/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

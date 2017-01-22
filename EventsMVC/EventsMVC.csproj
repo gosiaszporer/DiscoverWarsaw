@@ -200,6 +200,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\TIN_KategoriaController.cs" />
     <Compile Include="Controllers\TIN_OpiniaController.cs" />
     <Compile Include="Controllers\TIN_TagiController.cs" />
@@ -382,6 +383,10 @@
     <Content Include="Views\TIN_Tagi\Details.cshtml" />
     <Content Include="Views\TIN_Tagi\Edit.cshtml" />
     <Content Include="Views\TIN_Tagi\Index.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\AssignRoleToUser.cshtml" />
+    <Content Include="Views\Account\RegisterRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
