@@ -22,6 +22,7 @@ namespace EventsMVC.Controllers
             return View(tIN_Wydarzenie.ToList());
         }
 
+        [Authorize(Roles ="Admin")]
         // GET: TIN_Wydarzenie/Details/5
         public ActionResult Details(decimal id)
         {
@@ -37,6 +38,7 @@ namespace EventsMVC.Controllers
             return View(tIN_Wydarzenie);
         }
 
+        [Authorize]
         // GET: TIN_Wydarzenie/Create
         public ActionResult Create()
         {
@@ -47,6 +49,8 @@ namespace EventsMVC.Controllers
         // POST: TIN_Wydarzenie/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Nazwa,WiekOd,WiekDo,Cena,DataOd,DataDo,Adres,Organizator,TIN_Wydarzenie_ID,TIN_Kategoria_TIN_Kategoria_ID")] TIN_Wydarzenie tIN_Wydarzenie)
@@ -62,6 +66,7 @@ namespace EventsMVC.Controllers
             return View(tIN_Wydarzenie);
         }
 
+        [Authorize]
         // GET: TIN_Wydarzenie/Edit/5
         public ActionResult Edit(decimal id)
         {
@@ -95,6 +100,7 @@ namespace EventsMVC.Controllers
         // POST: TIN_Wydarzenie/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken] //Bind(Include = "Nazwa,WiekOd,WiekDo,Cena,DataOd,DataDo,Adres,Organizator,TIN_Wydarzenie_ID,TIN_Kategoria_TIN_Kategoria_ID")]
         public ActionResult Edit(WydTagViewModel wydTagView)
@@ -141,6 +147,7 @@ namespace EventsMVC.Controllers
             return View(wydTagView);
         }
 
+        [Authorize]
         // GET: TIN_Wydarzenie/Delete/5
         public ActionResult Delete(decimal id)
         {
@@ -158,6 +165,7 @@ namespace EventsMVC.Controllers
             return View(tIN_Wydarzenie);
         }
 
+        [Authorize]
         // POST: TIN_Wydarzenie/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
